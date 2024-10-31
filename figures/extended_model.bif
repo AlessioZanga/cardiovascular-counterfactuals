@@ -1,0 +1,612 @@
+network unknown {
+}
+variable age35 {
+  type discrete [ 2 ] { no, yes };
+}
+variable cardiotoxicity {
+  type discrete [ 2 ] { no, yes };
+}
+variable chemo_adiu {
+  type discrete [ 2 ] { no, yes };
+}
+variable chemo_neo {
+  type discrete [ 2 ] { no, yes };
+}
+variable cohort {
+  type discrete [ 2 ] { h, pb };
+}
+variable cvds {
+  type discrete [ 2 ] { no, yes };
+}
+variable death_in_5y {
+  type discrete [ 2 ] { no, yes };
+}
+variable dyslipidemia {
+  type discrete [ 3 ] { no, post, pre };
+}
+variable grade {
+  type discrete [ 3 ] { i, ii, iii };
+}
+variable histology {
+  type discrete [ 8 ] { adenomas and adenocarcinomas, complex epithelial neoplasms, ductal and lobular neoplasms, epithelial neoplasms_ nos, mucinous adenocarcinoma, neoplasms_ nos, papillary cystadenocarcinoma, squamous cell neoplasms };
+}
+variable hormons_adiu {
+  type discrete [ 2 ] { no, yes };
+}
+variable hormons_neo {
+  type discrete [ 2 ] { no, yes };
+}
+variable hypertension {
+  type discrete [ 3 ] { no, post, pre };
+}
+variable ischemic_heart_disease {
+  type discrete [ 2 ] { no, yes };
+}
+variable ki67 {
+  type discrete [ 2 ] { no, yes };
+}
+variable pn {
+  type discrete [ 2 ] { pn+, pn0 };
+}
+variable pt {
+  type discrete [ 4 ] { pt1, pt2, pt3, pt4 };
+}
+variable radio_adiu {
+  type discrete [ 2 ] { no, yes };
+}
+variable radio_neo {
+  type discrete [ 2 ] { no, yes };
+}
+variable receptors {
+  type discrete [ 6 ] { her 2 arricchiti, luminal, luminal a, luminal b, luminal her2, triple negative };
+}
+variable surgery {
+  type discrete [ 2 ] { conservative, radical };
+}
+variable t2db {
+  type discrete [ 3 ] { no, post, pre };
+}
+variable target_adiu {
+  type discrete [ 2 ] { no, yes };
+}
+variable target_neo {
+  type discrete [ 2 ] { no, yes };
+}
+variable vascular {
+  type discrete [ 2 ] { no, yes };
+}
+probability ( age35 | cohort ) {
+  (h) 0.3545727, 0.6454273;
+  (pb) 0.3388396, 0.6611604;
+}
+probability ( cardiotoxicity | chemo_adiu, chemo_neo, radio_adiu, radio_neo, target_adiu, target_neo ) {
+  (no, no, no, no, no, no) 0.98756027, 0.01243973;
+  (yes, no, no, no, no, no) 0.97972227, 0.02027773;
+  (no, yes, no, no, no, no) 0.9998468606, 0.0001531394;
+  (yes, yes, no, no, no, no) 0.97657101, 0.02342899;
+  (no, no, yes, no, no, no) 0.9999631513, 0.0000368487;
+  (yes, no, yes, no, no, no) 0.9777446, 0.0222554;
+  (no, yes, yes, no, no, no) 0.9998372925, 0.0001627075;
+  (yes, yes, yes, no, no, no) 0.92290749, 0.07709251;
+  (no, no, no, yes, no, no) 0.5, 0.5;
+  (yes, no, no, yes, no, no) 0.5, 0.5;
+  (no, yes, no, yes, no, no) 0.5, 0.5;
+  (yes, yes, no, yes, no, no) 0.5, 0.5;
+  (no, no, yes, yes, no, no) 0.5, 0.5;
+  (yes, no, yes, yes, no, no) 0.5, 0.5;
+  (no, yes, yes, yes, no, no) 0.007692308, 0.992307692;
+  (yes, yes, yes, yes, no, no) 0.5, 0.5;
+  (no, no, no, no, yes, no) 0.5, 0.5;
+  (yes, no, no, no, yes, no) 0.94700082, 0.05299918;
+  (no, yes, no, no, yes, no) 0.003875969, 0.996124031;
+  (yes, yes, no, no, yes, no) 0.998701299, 0.001298701;
+  (no, no, yes, no, yes, no) 0.003875969, 0.996124031;
+  (yes, no, yes, no, yes, no) 0.98785997, 0.01214003;
+  (no, yes, yes, no, yes, no) 0.996124031, 0.003875969;
+  (yes, yes, yes, no, yes, no) 0.9993498049, 0.0006501951;
+  (no, no, no, yes, yes, no) 0.5, 0.5;
+  (yes, no, no, yes, yes, no) 0.5, 0.5;
+  (no, yes, no, yes, yes, no) 0.5, 0.5;
+  (yes, yes, no, yes, yes, no) 0.5, 0.5;
+  (no, no, yes, yes, yes, no) 0.5, 0.5;
+  (yes, no, yes, yes, yes, no) 0.5, 0.5;
+  (no, yes, yes, yes, yes, no) 0.5, 0.5;
+  (yes, yes, yes, yes, yes, no) 0.5, 0.5;
+  (no, no, no, no, no, yes) 0.5, 0.5;
+  (yes, no, no, no, no, yes) 0.5, 0.5;
+  (no, yes, no, no, no, yes) 0.001298701, 0.998701299;
+  (yes, yes, no, no, no, yes) 0.5, 0.5;
+  (no, no, yes, no, no, yes) 0.5, 0.5;
+  (yes, no, yes, no, no, yes) 0.5, 0.5;
+  (no, yes, yes, no, no, yes) 0.007692308, 0.992307692;
+  (yes, yes, yes, no, no, yes) 0.5, 0.5;
+  (no, no, no, yes, no, yes) 0.5, 0.5;
+  (yes, no, no, yes, no, yes) 0.5, 0.5;
+  (no, yes, no, yes, no, yes) 0.5, 0.5;
+  (yes, yes, no, yes, no, yes) 0.5, 0.5;
+  (no, no, yes, yes, no, yes) 0.5, 0.5;
+  (yes, no, yes, yes, no, yes) 0.5, 0.5;
+  (no, yes, yes, yes, no, yes) 0.5, 0.5;
+  (yes, yes, yes, yes, no, yes) 0.5, 0.5;
+  (no, no, no, no, yes, yes) 0.5, 0.5;
+  (yes, no, no, no, yes, yes) 0.5, 0.5;
+  (no, yes, no, no, yes, yes) 0.9992907801, 0.0007092199;
+  (yes, yes, no, no, yes, yes) 0.007692308, 0.992307692;
+  (no, no, yes, no, yes, yes) 0.5, 0.5;
+  (yes, no, yes, no, yes, yes) 0.5, 0.5;
+  (no, yes, yes, no, yes, yes) 0.0009746589, 0.9990253411;
+  (yes, yes, yes, no, yes, yes) 0.007692308, 0.992307692;
+  (no, no, no, yes, yes, yes) 0.5, 0.5;
+  (yes, no, no, yes, yes, yes) 0.5, 0.5;
+  (no, yes, no, yes, yes, yes) 0.5, 0.5;
+  (yes, yes, no, yes, yes, yes) 0.5, 0.5;
+  (no, no, yes, yes, yes, yes) 0.5, 0.5;
+  (yes, no, yes, yes, yes, yes) 0.5, 0.5;
+  (no, yes, yes, yes, yes, yes) 0.5, 0.5;
+  (yes, yes, yes, yes, yes, yes) 0.5, 0.5;
+}
+probability ( chemo_adiu | chemo_neo, cohort, surgery ) {
+  (no, h, conservative) 0.557623, 0.442377;
+  (yes, h, conservative) 0.99704142, 0.00295858;
+  (no, pb, conservative) 0.3694787, 0.6305213;
+  (yes, pb, conservative) 0.4341176, 0.5658824;
+  (no, h, radical) 0.5605487, 0.4394513;
+  (yes, h, radical) 0.8021346, 0.1978654;
+  (no, pb, radical) 0.2750183, 0.7249817;
+  (yes, pb, radical) 0.305175, 0.694825;
+}
+probability ( chemo_neo | pn, vascular ) {
+  (pn+, no) 0.09488692, 0.90511308;
+  (pn0, no) 0.9997849462, 0.0002150538;
+  (pn+, yes) 0.998381877, 0.001618123;
+  (pn0, yes) 0.94848485, 0.05151515;
+}
+probability ( cohort ) {
+  table 0.3495807, 0.6504193;
+}
+probability ( cvds | cardiotoxicity, ischemic_heart_disease, target_neo ) {
+  (no, no, no) 0.99218858, 0.00781142;
+  (yes, no, no) 0.003267974, 0.996732026;
+  (no, yes, no) 0.02941176, 0.97058824;
+  (yes, yes, no) 0.5, 0.5;
+  (no, no, yes) 0.005617978, 0.994382022;
+  (yes, no, yes) 0.003649635, 0.996350365;
+  (no, yes, yes) 0.5, 0.5;
+  (yes, yes, yes) 0.5, 0.5;
+}
+probability ( death_in_5y | grade, pn, vascular ) {
+  (i, pn+, no) 0.98, 0.02;
+  (ii, pn+, no) 0.92013129, 0.07986871;
+  (iii, pn+, no) 0.9998053717, 0.0001946283;
+  (i, pn0, no) 0.993150685, 0.006849315;
+  (ii, pn0, no) 0.9991511036, 0.0008488964;
+  (iii, pn0, no) 9.999208e-01, 7.920165e-05;
+  (i, pn+, yes) 0.005154639, 0.994845361;
+  (ii, pn+, yes) 0.998194946, 0.001805054;
+  (iii, pn+, yes) 0.9990958409, 0.0009041591;
+  (i, pn0, yes) 0.991803279, 0.008196721;
+  (ii, pn0, yes) 0.996551724, 0.003448276;
+  (iii, pn0, yes) 0.998269896, 0.001730104;
+}
+probability ( dyslipidemia | cohort, hormons_adiu, hormons_neo, t2db ) {
+  (h, no, no, no) 0.3333333, 0.3333333, 0.3333333;
+  (pb, no, no, no) 0.97498922, 0.01250539, 0.01250539;
+  (h, yes, no, no) 0.3333333, 0.3333333, 0.3333333;
+  (pb, yes, no, no) 0.94342649, 0.04179889, 0.01477463;
+  (h, no, yes, no) 0.3333333, 0.3333333, 0.3333333;
+  (pb, no, yes, no) 0.994490358, 0.002754821, 0.002754821;
+  (h, yes, yes, no) 0.3333333, 0.3333333, 0.3333333;
+  (pb, yes, yes, no) 0.94806119, 0.02596941, 0.02596941;
+  (h, no, no, post) 0.3333333, 0.3333333, 0.3333333;
+  (pb, no, no, post) 0.986394558, 0.006802721, 0.006802721;
+  (h, yes, no, post) 0.3333333, 0.3333333, 0.3333333;
+  (pb, yes, no, post) 0.66210046, 0.33333333, 0.00456621;
+  (h, no, yes, post) 0.3333333, 0.3333333, 0.3333333;
+  (pb, no, yes, post) 0.3333333, 0.3333333, 0.3333333;
+  (h, yes, yes, post) 0.3333333, 0.3333333, 0.3333333;
+  (pb, yes, yes, post) 0.986394558, 0.006802721, 0.006802721;
+  (h, no, no, pre) 7.587829e-05, 7.587829e-05, 9.998482e-01;
+  (pb, no, no, pre) 0.97333333, 0.01333333, 0.01333333;
+  (h, yes, no, pre) 0.954692557, 0.000104395, 0.045203048;
+  (pb, yes, no, pre) 0.3333333, 0.3333333, 0.3333333;
+  (h, no, yes, pre) 0.996927803, 0.001536098, 0.001536098;
+  (pb, no, yes, pre) 0.3333333, 0.3333333, 0.3333333;
+  (h, yes, yes, pre) 0.001727116, 0.001727116, 0.996545769;
+  (pb, yes, yes, pre) 0.3333333, 0.3333333, 0.3333333;
+}
+probability ( grade | age35, cohort ) {
+  (no, h) 0.009161381, 0.355884426, 0.634954193;
+  (yes, h) 0.06078204, 0.36740225, 0.57181572;
+  (no, pb) 0.0051525961, 0.0003963535, 0.9944510503;
+  (yes, pb) 0.014828357, 0.002640666, 0.982530977;
+}
+probability ( histology | age35, cohort ) {
+  (no, h) 0.1186575053, 0.0087209302, 0.8628435518, 0.0002642706, 0.0087209302, 0.0002642706, 0.0002642706, 0.0002642706;
+  (yes, h) 0.074477352, 0.018728223, 0.882839721, 0.000145180, 0.018728223, 0.000145180, 0.000145180, 0.004790941;
+  (no, pb) 0.0049048751, 0.0001486326, 0.9133472057, 0.0477110583, 0.0144173603, 0.0191736029, 0.0001486326, 0.0001486326;
+  (yes, pb) 3.176417e-02, 7.617307e-05, 8.873400e-01, 3.663924e-02, 4.951249e-03, 3.663924e-02, 2.513711e-03, 7.617307e-05;
+}
+probability ( hormons_adiu | cohort, surgery ) {
+  (h, conservative) 0.5518962, 0.4481038;
+  (pb, conservative) 0.2644656, 0.7355344;
+  (h, radical) 0.5912365, 0.4087635;
+  (pb, radical) 0.2847976, 0.7152024;
+}
+probability ( hormons_neo | pn, vascular ) {
+  (pn+, no) 0.7517207, 0.2482793;
+  (pn0, no) 0.9997849462, 0.0002150538;
+  (pn+, yes) 0.998381877, 0.001618123;
+  (pn0, yes) 0.996969697, 0.003030303;
+}
+probability ( hypertension | cohort, hormons_adiu, hormons_neo, t2db ) {
+  (h, no, no, no) 0.3333333, 0.3333333, 0.3333333;
+  (pb, no, no, no) 0.83216904, 0.12427771, 0.04355326;
+  (h, yes, no, no) 0.3333333, 0.3333333, 0.3333333;
+  (pb, yes, no, no) 0.79847818, 0.17937694, 0.02214488;
+  (h, no, yes, no) 0.3333333, 0.3333333, 0.3333333;
+  (pb, no, yes, no) 0.5977961, 0.2011019, 0.2011019;
+  (h, yes, yes, no) 0.3333333, 0.3333333, 0.3333333;
+  (pb, yes, yes, no) 0.7431519, 0.1540377, 0.1028104;
+  (h, no, no, post) 0.3333333, 0.3333333, 0.3333333;
+  (pb, no, no, post) 0.496598639, 0.496598639, 0.006802721;
+  (h, yes, no, post) 0.3333333, 0.3333333, 0.3333333;
+  (pb, yes, no, post) 0.66210046, 0.33333333, 0.00456621;
+  (h, no, yes, post) 0.3333333, 0.3333333, 0.3333333;
+  (pb, no, yes, post) 0.3333333, 0.3333333, 0.3333333;
+  (h, yes, yes, post) 0.3333333, 0.3333333, 0.3333333;
+  (pb, yes, yes, post) 0.496598639, 0.496598639, 0.006802721;
+  (h, no, no, pre) 7.587829e-05, 7.587829e-05, 9.998482e-01;
+  (pb, no, no, pre) 0.97333333, 0.01333333, 0.01333333;
+  (h, yes, no, pre) 0.000104395, 0.000104395, 0.999791210;
+  (pb, yes, no, pre) 0.3333333, 0.3333333, 0.3333333;
+  (h, no, yes, pre) 0.001536098, 0.001536098, 0.996927803;
+  (pb, no, yes, pre) 0.3333333, 0.3333333, 0.3333333;
+  (h, yes, yes, pre) 0.001727116, 0.001727116, 0.996545769;
+  (pb, yes, yes, pre) 0.3333333, 0.3333333, 0.3333333;
+}
+probability ( ischemic_heart_disease | dyslipidemia, hormons_adiu, hormons_neo, hypertension ) {
+  (no, no, no, no) 0.9998963731, 0.0001036269;
+  (post, no, no, no) 0.98648649, 0.01351351;
+  (pre, no, no, no) 0.98648649, 0.01351351;
+  (no, yes, no, no) 9.999561e-01, 4.394832e-05;
+  (post, yes, no, no) 0.998269896, 0.001730104;
+  (pre, yes, no, no) 0.995412844, 0.004587156;
+  (no, no, yes, no) 0.995412844, 0.004587156;
+  (post, no, yes, no) 0.5, 0.5;
+  (pre, no, yes, no) 0.5, 0.5;
+  (no, yes, yes, no) 0.9995215311, 0.0004784689;
+  (post, yes, yes, no) 0.5, 0.5;
+  (pre, yes, yes, no) 0.98648649, 0.01351351;
+  (no, no, no, post) 0.9993065187, 0.0006934813;
+  (post, no, no, post) 0.98648649, 0.01351351;
+  (pre, no, no, post) 0.5, 0.5;
+  (no, yes, no, post) 0.999776086, 0.000223914;
+  (post, yes, no, post) 0.7769231, 0.2230769;
+  (pre, yes, no, post) 0.995412844, 0.004587156;
+  (no, no, yes, post) 0.98648649, 0.01351351;
+  (post, no, yes, post) 0.5, 0.5;
+  (pre, no, yes, post) 0.5, 0.5;
+  (no, yes, yes, post) 0.997695853, 0.002304147;
+  (post, yes, yes, post) 0.98648649, 0.01351351;
+  (pre, yes, yes, post) 0.5, 0.5;
+  (no, no, no, pre) 0.997695853, 0.002304147;
+  (post, no, no, pre) 0.5, 0.5;
+  (pre, no, no, pre) 0.9999245283, 0.0000754717;
+  (no, yes, no, pre) 0.9998971405, 0.0001028595;
+  (post, yes, no, pre) 0.98648649, 0.01351351;
+  (pre, yes, no, pre) 0.997695853, 0.002304147;
+  (no, no, yes, pre) 0.998614958, 0.001385042;
+  (post, no, yes, pre) 0.5, 0.5;
+  (pre, no, yes, pre) 0.5, 0.5;
+  (no, yes, yes, pre) 0.996551724, 0.003448276;
+  (post, yes, yes, pre) 0.5, 0.5;
+  (pre, yes, yes, pre) 0.998269896, 0.001730104;
+}
+probability ( ki67 | cohort, grade, histology ) {
+  (h, i, adenomas and adenocarcinomas) 0.002590674, 0.997409326;
+  (pb, i, adenomas and adenocarcinomas) 0.5, 0.5;
+  (h, ii, adenomas and adenocarcinomas) 0.0009451796, 0.9990548204;
+  (pb, ii, adenomas and adenocarcinomas) 0.5, 0.5;
+  (h, iii, adenomas and adenocarcinomas) 0.0006934813, 0.9993065187;
+  (pb, iii, adenomas and adenocarcinomas) 0.9992570579, 0.0007429421;
+  (h, i, complex epithelial neoplasms) 0.5, 0.5;
+  (pb, i, complex epithelial neoplasms) 0.5, 0.5;
+  (h, ii, complex epithelial neoplasms) 0.5, 0.5;
+  (pb, ii, complex epithelial neoplasms) 0.5, 0.5;
+  (h, iii, complex epithelial neoplasms) 0.002074689, 0.997925311;
+  (pb, iii, complex epithelial neoplasms) 0.5, 0.5;
+  (h, i, ductal and lobular neoplasms) 0.4445727, 0.5554273;
+  (pb, i, ductal and lobular neoplasms) 0.99851632, 0.00148368;
+  (h, ii, ductal and lobular neoplasms) 0.1963208, 0.8036792;
+  (pb, ii, ductal and lobular neoplasms) 0.98979592, 0.01020408;
+  (h, iii, ductal and lobular neoplasms) 0.0000591786, 0.9999408214;
+  (pb, iii, ductal and lobular neoplasms) 9.999810e-01, 1.900779e-05;
+  (h, i, epithelial neoplasms_ nos) 0.5, 0.5;
+  (pb, i, epithelial neoplasms_ nos) 0.5, 0.5;
+  (h, ii, epithelial neoplasms_ nos) 0.5, 0.5;
+  (pb, ii, epithelial neoplasms_ nos) 0.5, 0.5;
+  (h, iii, epithelial neoplasms_ nos) 0.5, 0.5;
+  (pb, iii, epithelial neoplasms_ nos) 0.0004163197, 0.9995836803;
+  (h, i, mucinous adenocarcinoma) 0.01020408, 0.98979592;
+  (pb, i, mucinous adenocarcinoma) 0.5, 0.5;
+  (h, ii, mucinous adenocarcinoma) 0.003448276, 0.996551724;
+  (pb, ii, mucinous adenocarcinoma) 0.5, 0.5;
+  (h, iii, mucinous adenocarcinoma) 0.01020408, 0.98979592;
+  (pb, iii, mucinous adenocarcinoma) 0.997925311, 0.002074689;
+  (h, i, neoplasms_ nos) 0.5, 0.5;
+  (pb, i, neoplasms_ nos) 0.5, 0.5;
+  (h, ii, neoplasms_ nos) 0.5, 0.5;
+  (pb, ii, neoplasms_ nos) 0.5, 0.5;
+  (h, iii, neoplasms_ nos) 0.5, 0.5;
+  (pb, iii, neoplasms_ nos) 0.9994523549, 0.0005476451;
+  (h, i, papillary cystadenocarcinoma) 0.5, 0.5;
+  (pb, i, papillary cystadenocarcinoma) 0.5, 0.5;
+  (h, ii, papillary cystadenocarcinoma) 0.5, 0.5;
+  (pb, ii, papillary cystadenocarcinoma) 0.5, 0.5;
+  (h, iii, papillary cystadenocarcinoma) 0.5, 0.5;
+  (pb, iii, papillary cystadenocarcinoma) 0.01020408, 0.98979592;
+  (h, i, squamous cell neoplasms) 0.5, 0.5;
+  (pb, i, squamous cell neoplasms) 0.5, 0.5;
+  (h, ii, squamous cell neoplasms) 0.5, 0.5;
+  (pb, ii, squamous cell neoplasms) 0.5, 0.5;
+  (h, iii, squamous cell neoplasms) 0.01020408, 0.98979592;
+  (pb, iii, squamous cell neoplasms) 0.5, 0.5;
+}
+probability ( pn | cohort, grade, histology ) {
+  (h, i, adenomas and adenocarcinomas) 0.002590674, 0.997409326;
+  (pb, i, adenomas and adenocarcinomas) 0.5, 0.5;
+  (h, ii, adenomas and adenocarcinomas) 0.9990548204, 0.0009451796;
+  (pb, ii, adenomas and adenocarcinomas) 0.5, 0.5;
+  (h, iii, adenomas and adenocarcinomas) 0.9993065187, 0.0006934813;
+  (pb, iii, adenomas and adenocarcinomas) 0.2147103, 0.7852897;
+  (h, i, complex epithelial neoplasms) 0.5, 0.5;
+  (pb, i, complex epithelial neoplasms) 0.5, 0.5;
+  (h, ii, complex epithelial neoplasms) 0.5, 0.5;
+  (pb, ii, complex epithelial neoplasms) 0.5, 0.5;
+  (h, iii, complex epithelial neoplasms) 0.5995851, 0.4004149;
+  (pb, iii, complex epithelial neoplasms) 0.5, 0.5;
+  (h, i, ductal and lobular neoplasms) 0.2228637, 0.7771363;
+  (pb, i, ductal and lobular neoplasms) 0.99851632, 0.00148368;
+  (h, ii, ductal and lobular neoplasms) 0.4486081, 0.5513919;
+  (pb, ii, ductal and lobular neoplasms) 0.98979592, 0.01020408;
+  (h, iii, ductal and lobular neoplasms) 0.5852172, 0.4147828;
+  (pb, iii, ductal and lobular neoplasms) 0.2226383, 0.7773617;
+  (h, i, epithelial neoplasms_ nos) 0.5, 0.5;
+  (pb, i, epithelial neoplasms_ nos) 0.5, 0.5;
+  (h, ii, epithelial neoplasms_ nos) 0.5, 0.5;
+  (pb, ii, epithelial neoplasms_ nos) 0.5, 0.5;
+  (h, iii, epithelial neoplasms_ nos) 0.5, 0.5;
+  (pb, iii, epithelial neoplasms_ nos) 0.5199833, 0.4800167;
+  (h, i, mucinous adenocarcinoma) 0.98979592, 0.01020408;
+  (pb, i, mucinous adenocarcinoma) 0.5, 0.5;
+  (h, ii, mucinous adenocarcinoma) 0.3344828, 0.6655172;
+  (pb, ii, mucinous adenocarcinoma) 0.5, 0.5;
+  (h, iii, mucinous adenocarcinoma) 0.01020408, 0.98979592;
+  (pb, iii, mucinous adenocarcinoma) 0.2012448, 0.7987552;
+  (h, i, neoplasms_ nos) 0.5, 0.5;
+  (pb, i, neoplasms_ nos) 0.5, 0.5;
+  (h, ii, neoplasms_ nos) 0.5, 0.5;
+  (pb, ii, neoplasms_ nos) 0.5, 0.5;
+  (h, iii, neoplasms_ nos) 0.5, 0.5;
+  (pb, iii, neoplasms_ nos) 0.0005476451, 0.9994523549;
+  (h, i, papillary cystadenocarcinoma) 0.5, 0.5;
+  (pb, i, papillary cystadenocarcinoma) 0.5, 0.5;
+  (h, ii, papillary cystadenocarcinoma) 0.5, 0.5;
+  (pb, ii, papillary cystadenocarcinoma) 0.5, 0.5;
+  (h, iii, papillary cystadenocarcinoma) 0.5, 0.5;
+  (pb, iii, papillary cystadenocarcinoma) 0.01020408, 0.98979592;
+  (h, i, squamous cell neoplasms) 0.5, 0.5;
+  (pb, i, squamous cell neoplasms) 0.5, 0.5;
+  (h, ii, squamous cell neoplasms) 0.5, 0.5;
+  (pb, ii, squamous cell neoplasms) 0.5, 0.5;
+  (h, iii, squamous cell neoplasms) 0.01020408, 0.98979592;
+  (pb, iii, squamous cell neoplasms) 0.5, 0.5;
+}
+probability ( pt | cohort, grade, histology ) {
+  (h, i, adenomas and adenocarcinomas) 0.996113990, 0.001295337, 0.001295337, 0.001295337;
+  (pb, i, adenomas and adenocarcinomas) 0.25, 0.25, 0.25, 0.25;
+  (h, ii, adenomas and adenocarcinomas) 0.0912098299, 0.9078449905, 0.0004725898, 0.0004725898;
+  (pb, ii, adenomas and adenocarcinomas) 0.25, 0.25, 0.25, 0.25;
+  (h, iii, adenomas and adenocarcinomas) 0.0003467406, 0.9989597781, 0.0003467406, 0.0003467406;
+  (pb, iii, adenomas and adenocarcinomas) 0.000371471, 0.998885587, 0.000371471, 0.000371471;
+  (h, i, complex epithelial neoplasms) 0.25, 0.25, 0.25, 0.25;
+  (pb, i, complex epithelial neoplasms) 0.25, 0.25, 0.25, 0.25;
+  (h, ii, complex epithelial neoplasms) 0.25, 0.25, 0.25, 0.25;
+  (pb, ii, complex epithelial neoplasms) 0.25, 0.25, 0.25, 0.25;
+  (h, iii, complex epithelial neoplasms) 0.200207469, 0.797717842, 0.001037344, 0.001037344;
+  (pb, iii, complex epithelial neoplasms) 0.25, 0.25, 0.25, 0.25;
+  (h, i, ductal and lobular neoplasms) 0.9982678984, 0.0005773672, 0.0005773672, 0.0005773672;
+  (pb, i, ductal and lobular neoplasms) 0.5704747774, 0.0007418398, 0.4280415430, 0.0007418398;
+  (h, ii, ductal and lobular neoplasms) 8.877263e-01, 1.028324e-01, 9.392642e-03, 4.866654e-05;
+  (pb, ii, ductal and lobular neoplasms) 0.984693878, 0.005102041, 0.005102041, 0.005102041;
+  (h, iii, ductal and lobular neoplasms) 0.78402770, 0.16478281, 0.01139188, 0.03979761;
+  (pb, iii, ductal and lobular neoplasms) 9.999715e-01, 9.503897e-06, 9.503897e-06, 9.503897e-06;
+  (h, i, epithelial neoplasms_ nos) 0.25, 0.25, 0.25, 0.25;
+  (pb, i, epithelial neoplasms_ nos) 0.25, 0.25, 0.25, 0.25;
+  (h, ii, epithelial neoplasms_ nos) 0.25, 0.25, 0.25, 0.25;
+  (pb, ii, epithelial neoplasms_ nos) 0.25, 0.25, 0.25, 0.25;
+  (h, iii, epithelial neoplasms_ nos) 0.25, 0.25, 0.25, 0.25;
+  (pb, iii, epithelial neoplasms_ nos) 0.0002081599, 0.0002081599, 0.9993755204, 0.0002081599;
+  (h, i, mucinous adenocarcinoma) 0.984693878, 0.005102041, 0.005102041, 0.005102041;
+  (pb, i, mucinous adenocarcinoma) 0.25, 0.25, 0.25, 0.25;
+  (h, ii, mucinous adenocarcinoma) 0.332758621, 0.663793103, 0.001724138, 0.001724138;
+  (pb, ii, mucinous adenocarcinoma) 0.25, 0.25, 0.25, 0.25;
+  (h, iii, mucinous adenocarcinoma) 0.984693878, 0.005102041, 0.005102041, 0.005102041;
+  (pb, iii, mucinous adenocarcinoma) 0.996887967, 0.001037344, 0.001037344, 0.001037344;
+  (h, i, neoplasms_ nos) 0.25, 0.25, 0.25, 0.25;
+  (pb, i, neoplasms_ nos) 0.25, 0.25, 0.25, 0.25;
+  (h, ii, neoplasms_ nos) 0.25, 0.25, 0.25, 0.25;
+  (pb, ii, neoplasms_ nos) 0.25, 0.25, 0.25, 0.25;
+  (h, iii, neoplasms_ nos) 0.25, 0.25, 0.25, 0.25;
+  (pb, iii, neoplasms_ nos) 0.0002738226, 0.9991785323, 0.0002738226, 0.0002738226;
+  (h, i, papillary cystadenocarcinoma) 0.25, 0.25, 0.25, 0.25;
+  (pb, i, papillary cystadenocarcinoma) 0.25, 0.25, 0.25, 0.25;
+  (h, ii, papillary cystadenocarcinoma) 0.25, 0.25, 0.25, 0.25;
+  (pb, ii, papillary cystadenocarcinoma) 0.25, 0.25, 0.25, 0.25;
+  (h, iii, papillary cystadenocarcinoma) 0.25, 0.25, 0.25, 0.25;
+  (pb, iii, papillary cystadenocarcinoma) 0.005102041, 0.005102041, 0.984693878, 0.005102041;
+  (h, i, squamous cell neoplasms) 0.25, 0.25, 0.25, 0.25;
+  (pb, i, squamous cell neoplasms) 0.25, 0.25, 0.25, 0.25;
+  (h, ii, squamous cell neoplasms) 0.25, 0.25, 0.25, 0.25;
+  (pb, ii, squamous cell neoplasms) 0.25, 0.25, 0.25, 0.25;
+  (h, iii, squamous cell neoplasms) 0.005102041, 0.984693878, 0.005102041, 0.005102041;
+  (pb, iii, squamous cell neoplasms) 0.25, 0.25, 0.25, 0.25;
+}
+probability ( radio_adiu | chemo_neo, cohort, surgery ) {
+  (no, h, conservative) 0.01020408, 0.98979592;
+  (yes, h, conservative) 0.3816568, 0.6183432;
+  (no, pb, conservative) 0.2612415, 0.7387585;
+  (yes, pb, conservative) 0.2647059, 0.7352941;
+  (no, h, radical) 0.008041627, 0.991958373;
+  (yes, h, radical) 0.6576355, 0.3423645;
+  (no, pb, radical) 0.6723886, 0.3276114;
+  (yes, pb, radical) 0.5852359, 0.4147641;
+}
+probability ( radio_neo | pn, vascular ) {
+  (pn+, no) 0.995575221, 0.004424779;
+  (pn0, no) 0.9997849462, 0.0002150538;
+  (pn+, yes) 0.998381877, 0.001618123;
+  (pn0, yes) 0.996969697, 0.003030303;
+}
+probability ( receptors | cohort, grade, histology ) {
+  (h, i, adenomas and adenocarcinomas) 0.0008635579, 0.0008635579, 0.2495682211, 0.7469775475, 0.0008635579, 0.0008635579;
+  (pb, i, adenomas and adenocarcinomas) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (h, ii, adenomas and adenocarcinomas) 0.0003150599, 0.0910522999, 0.0003150599, 0.4540012602, 0.1817895400, 0.2725267801;
+  (pb, ii, adenomas and adenocarcinomas) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (h, iii, adenomas and adenocarcinomas) 0.1333795654, 0.0002311604, 0.0002311604, 0.1999537679, 0.0002311604, 0.6659731854;
+  (pb, iii, adenomas and adenocarcinomas) 0.0002476474, 0.0002476474, 0.0002476474, 0.0002476474, 0.0002476474, 0.9987617632;
+  (h, i, complex epithelial neoplasms) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (pb, i, complex epithelial neoplasms) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (h, ii, complex epithelial neoplasms) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (pb, ii, complex epithelial neoplasms) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (h, iii, complex epithelial neoplasms) 0.0006915629, 0.0006915629, 0.0006915629, 0.0006915629, 0.0006915629, 0.9965421853;
+  (pb, iii, complex epithelial neoplasms) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (h, i, ductal and lobular neoplasms) 0.1112394149, 0.0003849115, 0.4438029253, 0.3329484219, 0.1112394149, 0.0003849115;
+  (pb, i, ductal and lobular neoplasms) 0.4277942631, 0.0004945598, 0.0004945598, 0.0004945598, 0.0004945598, 0.5702274975;
+  (h, ii, ductal and lobular neoplasms) 0.01872039, 0.01872039, 0.18691195, 0.57935890, 0.14953605, 0.04675232;
+  (pb, ii, ductal and lobular neoplasms) 0.003401361, 0.982993197, 0.003401361, 0.003401361, 0.003401361, 0.003401361;
+  (h, iii, ductal and lobular neoplasms) 0.1363672229, 0.0000197262, 0.0000197262, 0.3806564879, 0.2556712826, 0.2272655541;
+  (pb, iii, ductal and lobular neoplasms) 6.335931e-06, 9.999683e-01, 6.335931e-06, 6.335931e-06, 6.335931e-06, 6.335931e-06;
+  (h, i, epithelial neoplasms_ nos) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (pb, i, epithelial neoplasms_ nos) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (h, ii, epithelial neoplasms_ nos) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (pb, ii, epithelial neoplasms_ nos) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (h, iii, epithelial neoplasms_ nos) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (pb, iii, epithelial neoplasms_ nos) 0.0001387732, 0.0001387732, 0.0001387732, 0.0001387732, 0.9993061338, 0.0001387732;
+  (h, i, mucinous adenocarcinoma) 0.003401361, 0.003401361, 0.003401361, 0.982993197, 0.003401361, 0.003401361;
+  (pb, i, mucinous adenocarcinoma) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (h, ii, mucinous adenocarcinoma) 0.001149425, 0.001149425, 0.001149425, 0.994252874, 0.001149425, 0.001149425;
+  (pb, ii, mucinous adenocarcinoma) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (h, iii, mucinous adenocarcinoma) 0.003401361, 0.003401361, 0.003401361, 0.982993197, 0.003401361, 0.003401361;
+  (pb, iii, mucinous adenocarcinoma) 0.9965421853, 0.0006915629, 0.0006915629, 0.0006915629, 0.0006915629, 0.0006915629;
+  (h, i, neoplasms_ nos) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (pb, i, neoplasms_ nos) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (h, ii, neoplasms_ nos) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (pb, ii, neoplasms_ nos) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (h, iii, neoplasms_ nos) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (pb, iii, neoplasms_ nos) 0.0001825484, 0.0001825484, 0.9990872581, 0.0001825484, 0.0001825484, 0.0001825484;
+  (h, i, papillary cystadenocarcinoma) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (pb, i, papillary cystadenocarcinoma) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (h, ii, papillary cystadenocarcinoma) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (pb, ii, papillary cystadenocarcinoma) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (h, iii, papillary cystadenocarcinoma) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (pb, iii, papillary cystadenocarcinoma) 0.003401361, 0.003401361, 0.982993197, 0.003401361, 0.003401361, 0.003401361;
+  (h, i, squamous cell neoplasms) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (pb, i, squamous cell neoplasms) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (h, ii, squamous cell neoplasms) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (pb, ii, squamous cell neoplasms) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+  (h, iii, squamous cell neoplasms) 0.003401361, 0.003401361, 0.003401361, 0.003401361, 0.003401361, 0.982993197;
+  (pb, iii, squamous cell neoplasms) 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667, 0.1666667;
+}
+probability ( surgery | chemo_neo, hormons_neo, radio_neo, target_neo ) {
+  (no, no, no, no) 0.5804126, 0.4195874;
+  (yes, no, no, no) 0.3882039, 0.6117961;
+  (no, yes, no, no) 0.5, 0.5;
+  (yes, yes, no, no) 0.2356181, 0.7643819;
+  (no, no, yes, no) 0.5, 0.5;
+  (yes, no, yes, no) 0.5, 0.5;
+  (no, yes, yes, no) 0.5, 0.5;
+  (yes, yes, yes, no) 0.02941176, 0.97058824;
+  (no, no, no, yes) 0.5, 0.5;
+  (yes, no, no, yes) 0.04471545, 0.95528455;
+  (no, yes, no, yes) 0.5, 0.5;
+  (yes, yes, no, yes) 0.4012346, 0.5987654;
+  (no, no, yes, yes) 0.5, 0.5;
+  (yes, no, yes, yes) 0.5, 0.5;
+  (no, yes, yes, yes) 0.5, 0.5;
+  (yes, yes, yes, yes) 0.5, 0.5;
+}
+probability ( t2db | cohort ) {
+  (h) 0.0004997501, 0.0004997501, 0.9990004998;
+  (pb) 0.986569970, 0.011549825, 0.001880204;
+}
+probability ( target_adiu | chemo_adiu, surgery, target_neo ) {
+  (no, conservative, no) 0.995061011, 0.004938989;
+  (yes, conservative, no) 0.7881897, 0.2118103;
+  (no, radical, no) 0.97250509, 0.02749491;
+  (yes, radical, no) 0.7538423, 0.2461577;
+  (no, conservative, yes) 0.66, 0.34;
+  (yes, conservative, yes) 0.5, 0.5;
+  (no, radical, yes) 0.2189189, 0.7810811;
+  (yes, radical, yes) 0.02941176, 0.97058824;
+}
+probability ( target_neo | cohort, pn, vascular ) {
+  (h, pn+, no) 0.771632, 0.228368;
+  (pb, pn+, no) 0.9995539697, 0.0004460303;
+  (h, pn0, no) 0.9994219653, 0.0005780347;
+  (pb, pn0, no) 0.9998678996, 0.0001321004;
+  (h, pn+, yes) 0.9991087344, 0.0008912656;
+  (pb, pn+, yes) 0.99122807, 0.00877193;
+  (h, pn0, yes) 0.94984802, 0.05015198;
+  (pb, pn0, yes) 0.5, 0.5;
+}
+probability ( vascular | cohort, grade, histology ) {
+  (h, i, adenomas and adenocarcinomas) 0.002590674, 0.997409326;
+  (pb, i, adenomas and adenocarcinomas) 0.5, 0.5;
+  (h, ii, adenomas and adenocarcinomas) 0.9990548204, 0.0009451796;
+  (pb, ii, adenomas and adenocarcinomas) 0.5, 0.5;
+  (h, iii, adenomas and adenocarcinomas) 0.9993065187, 0.0006934813;
+  (pb, iii, adenomas and adenocarcinomas) 0.9992570579, 0.0007429421;
+  (h, i, complex epithelial neoplasms) 0.5, 0.5;
+  (pb, i, complex epithelial neoplasms) 0.5, 0.5;
+  (h, ii, complex epithelial neoplasms) 0.5, 0.5;
+  (pb, ii, complex epithelial neoplasms) 0.5, 0.5;
+  (h, iii, complex epithelial neoplasms) 0.5995851, 0.4004149;
+  (pb, iii, complex epithelial neoplasms) 0.5, 0.5;
+  (h, i, ductal and lobular neoplasms) 0.8879908, 0.1120092;
+  (pb, i, ductal and lobular neoplasms) 0.00148368, 0.99851632;
+  (h, ii, ductal and lobular neoplasms) 0.6822075, 0.3177925;
+  (pb, ii, ductal and lobular neoplasms) 0.98979592, 0.01020408;
+  (h, iii, ductal and lobular neoplasms) 0.6136229, 0.3863771;
+  (pb, iii, ductal and lobular neoplasms) 9.999810e-01, 1.900779e-05;
+  (h, i, epithelial neoplasms_ nos) 0.5, 0.5;
+  (pb, i, epithelial neoplasms_ nos) 0.5, 0.5;
+  (h, ii, epithelial neoplasms_ nos) 0.5, 0.5;
+  (pb, ii, epithelial neoplasms_ nos) 0.5, 0.5;
+  (h, iii, epithelial neoplasms_ nos) 0.5, 0.5;
+  (pb, iii, epithelial neoplasms_ nos) 0.9995836803, 0.0004163197;
+  (h, i, mucinous adenocarcinoma) 0.01020408, 0.98979592;
+  (pb, i, mucinous adenocarcinoma) 0.5, 0.5;
+  (h, ii, mucinous adenocarcinoma) 0.6655172, 0.3344828;
+  (pb, ii, mucinous adenocarcinoma) 0.5, 0.5;
+  (h, iii, mucinous adenocarcinoma) 0.98979592, 0.01020408;
+  (pb, iii, mucinous adenocarcinoma) 0.997925311, 0.002074689;
+  (h, i, neoplasms_ nos) 0.5, 0.5;
+  (pb, i, neoplasms_ nos) 0.5, 0.5;
+  (h, ii, neoplasms_ nos) 0.5, 0.5;
+  (pb, ii, neoplasms_ nos) 0.5, 0.5;
+  (h, iii, neoplasms_ nos) 0.5, 0.5;
+  (pb, iii, neoplasms_ nos) 0.9994523549, 0.0005476451;
+  (h, i, papillary cystadenocarcinoma) 0.5, 0.5;
+  (pb, i, papillary cystadenocarcinoma) 0.5, 0.5;
+  (h, ii, papillary cystadenocarcinoma) 0.5, 0.5;
+  (pb, ii, papillary cystadenocarcinoma) 0.5, 0.5;
+  (h, iii, papillary cystadenocarcinoma) 0.5, 0.5;
+  (pb, iii, papillary cystadenocarcinoma) 0.98979592, 0.01020408;
+  (h, i, squamous cell neoplasms) 0.5, 0.5;
+  (pb, i, squamous cell neoplasms) 0.5, 0.5;
+  (h, ii, squamous cell neoplasms) 0.5, 0.5;
+  (pb, ii, squamous cell neoplasms) 0.5, 0.5;
+  (h, iii, squamous cell neoplasms) 0.98979592, 0.01020408;
+  (pb, iii, squamous cell neoplasms) 0.5, 0.5;
+}
